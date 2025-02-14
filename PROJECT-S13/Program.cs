@@ -8,54 +8,55 @@ void RaccoltaDati()
     Console.WriteLine("========================================");
     Console.WriteLine("Benvenuto nel programma di calcolo dell'imposta");
     Console.WriteLine("========================================");
-    Console.WriteLine();
     bool controlloDati = false;
     do
     {
         controlloDati = false;
+        Console.WriteLine();
         Console.WriteLine("Inserisci Nome");
         string? response = Console.ReadLine();
         Console.WriteLine();
         Console.WriteLine("========================================");
         Console.WriteLine();
-        if (!string.IsNullOrWhiteSpace(response) && response.Any(x => char.IsLetter(x)))
+        if (!string.IsNullOrWhiteSpace(response) && response.All(x => char.IsLetter(x)))
         {
             controlloDati = true;
             contribuente.Nome = response;
         }
         else
         {
-            Console.WriteLine();
             Console.WriteLine("Inserire un nome valido!");
             Console.WriteLine();
-
+            Console.WriteLine("========================================");
         }
     }
     while (!controlloDati);
     do
     {
         controlloDati = false;
+        Console.WriteLine();
         Console.WriteLine("Inserire Cognome");
         string? response = Console.ReadLine();
         Console.WriteLine();
         Console.WriteLine("========================================");
         Console.WriteLine();
-        if (!string.IsNullOrWhiteSpace(response) && response.Any(x => char.IsLetter(x)))
+        if (!string.IsNullOrWhiteSpace(response) && response.All(x => char.IsLetter(x)))
         {
             controlloDati = true;
             contribuente.Cognome = response;
         }
         else
         {
-            Console.WriteLine();
             Console.WriteLine("Inserire un cognome valido!");
             Console.WriteLine();
+            Console.WriteLine("========================================");
         }
     }
     while (!controlloDati);
     do
     {
         controlloDati = false;
+        Console.WriteLine();
         Console.WriteLine("Inserire Data di Nascita in formato GG/MM/AAAA");
         string? response = Console.ReadLine();
         Console.WriteLine();
@@ -68,15 +69,16 @@ void RaccoltaDati()
         }
         else
         {
-            Console.WriteLine();
             Console.WriteLine("Inserire una Data di Nascita valida!");
             Console.WriteLine();
+            Console.WriteLine("========================================");
         }
     }
     while (!controlloDati);
     do
     {
         controlloDati = false;
+        Console.WriteLine();
         Console.WriteLine("Inserire il proprio Sesso nel formato M o F");
         string? response = Console.ReadLine();
         Console.WriteLine();
@@ -89,36 +91,38 @@ void RaccoltaDati()
         }
         else
         {
-            Console.WriteLine();
             Console.WriteLine("Inserire M o F per indicare il proprio Sesso");
             Console.WriteLine();
+            Console.WriteLine("========================================");
         }
     }
     while (!controlloDati);
     do
     {
         controlloDati = false;
+        Console.WriteLine();
         Console.WriteLine("Inserire Comune di Residenza");
         string? response = Console.ReadLine();
         Console.WriteLine();
         Console.WriteLine("========================================");
         Console.WriteLine();
-        if (!string.IsNullOrWhiteSpace(response) && response.Any(x => char.IsLetter(x)))
+        if (!string.IsNullOrWhiteSpace(response) && response.All(x => char.IsLetter(x)))
         {
             controlloDati = true;
             contribuente.ComuneResidenza = response;
         }
         else
         {
-            Console.WriteLine();
             Console.WriteLine("Inserire Comune di Residenza valido");
             Console.WriteLine();
+            Console.WriteLine("========================================");
         }
     }
     while (!controlloDati);
     do
     {
         controlloDati = false;
+        Console.WriteLine();
         Console.WriteLine("Inserire Codice Fiscale");
         string? response = Console.ReadLine();
         Console.WriteLine();
@@ -132,15 +136,16 @@ void RaccoltaDati()
         }
         else
         {
-            Console.WriteLine();
             Console.WriteLine("Inserire Codice Fiscale valido");
             Console.WriteLine();
+            Console.WriteLine("========================================");
         }
     }
     while (!controlloDati);
     do
     {
         controlloDati = false;
+        Console.WriteLine();
         Console.WriteLine("Inserire Reddito Annuo");
         string? response = Console.ReadLine();
         Console.WriteLine();
@@ -153,9 +158,9 @@ void RaccoltaDati()
         }
         else
         {
-            Console.WriteLine();
             Console.WriteLine("Inserire Reddito Annuo valido");
             Console.WriteLine();
+            Console.WriteLine("========================================");
         }
     }
     while (!controlloDati);

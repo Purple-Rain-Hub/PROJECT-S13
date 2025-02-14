@@ -15,7 +15,7 @@ namespace PROJECT_S13
         public void TaxShow()
         {
             TaxCalculation();
-            Console.WriteLine($"==================================================\r\n\r\nCALCOLO DELL'IMPOSTA DA VERSARE:\r\n\r\nContribuente: {Nome} {Cognome}, \r\n\r\nnato il {DataNascita} ({Sesso.ToUpper()}), \r\n\r\nresidente in {ComuneResidenza}, \r\n\r\ncodice fiscale: {CodiceFiscale}\r\n\r\nReddito dichiarato: € {RedditoAnnuale}\r\n\r\nIMPOSTA DA VERSARE: € {Imposte}");
+            Console.WriteLine($"==================================================\r\n\r\nCALCOLO DELL'IMPOSTA DA VERSARE:\r\n\r\nContribuente: {Nome} {Cognome}, \r\n\r\nnato il {DataNascita} ({Sesso.ToUpper()}), \r\n\r\nresidente in {ComuneResidenza}, \r\n\r\ncodice fiscale: {CodiceFiscale}\r\n\r\nReddito dichiarato: € {RedditoAnnuale}\r\n\r\nIMPOSTA DA VERSARE: € {Imposte}\r\n\r\n========================================\r\n\r\nGrazie e Arrivederci");
         }
 
         private void TaxCalculation()
