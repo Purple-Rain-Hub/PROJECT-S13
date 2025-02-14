@@ -67,7 +67,7 @@ namespace PROJECT_S13
                 controlloGiorno = DataNascita.Day.ToString();
             }
             else { controlloGiorno = (DataNascita.Day + 40).ToString(); }
-            if (!string.IsNullOrWhiteSpace(response) && Regex.IsMatch(response.ToUpper(), (@"^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$")) && Cognome.ToUpper().Contains(responseArray[0]) && Cognome.ToUpper().Contains(responseArray[1]) && Cognome.ToUpper().Contains(responseArray[2]) && Nome.ToUpper().Contains(responseArray[3]) && Nome.ToUpper().Contains(responseArray[4]) && Nome.ToUpper().Contains(responseArray[5]) && controlloAnno == (responseArray[6].ToString() + responseArray[7].ToString()) && controlloMese == responseArray[8].ToString() && controlloGiorno == (responseArray[9].ToString() + responseArray[10].ToString()))
+            if (Regex.IsMatch(response.ToUpper(), (@"^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$")) && Cognome.ToUpper().Contains(responseArray[0]) && Cognome.ToUpper().Contains(responseArray[1]) && Cognome.ToUpper().Contains(responseArray[2]) && Nome.ToUpper().Contains(responseArray[3]) && Nome.ToUpper().Contains(responseArray[4]) && Nome.ToUpper().Contains(responseArray[5]) && controlloAnno == (responseArray[6].ToString() + responseArray[7].ToString()) && controlloMese == responseArray[8].ToString() && controlloGiorno == (responseArray[9].ToString() + responseArray[10].ToString()))
             {
                 return true;
             }

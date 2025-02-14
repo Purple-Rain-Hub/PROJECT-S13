@@ -86,7 +86,7 @@ void RaccoltaDati()
         Console.WriteLine();
         Console.WriteLine("========================================");
         Console.WriteLine();
-        if (!string.IsNullOrWhiteSpace(response) && response.ToUpper() == "M" || !string.IsNullOrWhiteSpace(response) && response.ToUpper() == "F")
+        if (response.ToUpper() == "M" || response.ToUpper() == "F")
         {
             controlloDati = true;
             contribuente.Sesso = response;
