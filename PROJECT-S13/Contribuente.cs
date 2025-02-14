@@ -3,17 +3,24 @@ namespace PROJECT_S13
 {
     internal class Contribuente
     {
-        public string Nome { get; set; }
-        public string Cognome { get; set; }
-        public DateTime DataNascita { get; set; }
-        public char Sesso { get; set; }
-        public string ComuneResidenza { get; set; }
-        public string CodiceFiscale { get; set; }
-        public double RedditoAnnuale { get; set; }
+        public required string Nome { get; set; }
+        public required string Cognome { get; set; }
+        public required DateTime DataNascita { get; set; }
+        public required string Sesso { get; set; }
+        public required string ComuneResidenza { get; set; }
+        public required string CodiceFiscale { get; set; }
+        public required double RedditoAnnuale { get; set; }
 
         private void TaxCalculation()
         {
-            Console.WriteLine("ciao");
+            Console.WriteLine();
+            Console.WriteLine("========================================");
+            Console.WriteLine();
+            Console.WriteLine("Calcolo imposte in corso...");
+            Console.WriteLine();
+            Console.WriteLine("========================================");
+            Console.WriteLine();
+            
         }
 
         private void TaxShow()
