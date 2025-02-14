@@ -1,4 +1,5 @@
 ﻿using PROJECT_S13;
+Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 Contribuente contribuente = new();
 
@@ -105,7 +106,7 @@ void RaccoltaDati()
         if (!string.IsNullOrWhiteSpace(response) && response.Any(x => char.IsLetter(x)))
         {
             controlloDati = true;
-            contribuente.Sesso = response;
+            contribuente.ComuneResidenza = response;
         }
         else
         {
@@ -127,7 +128,7 @@ void RaccoltaDati()
         if(!string.IsNullOrWhiteSpace(response) && response.Length == 16 && contribuente.Cognome.ToUpper().Contains(responseArray[0]) && contribuente.Cognome.ToUpper().Contains(responseArray[1]) && contribuente.Cognome.ToUpper().Contains(responseArray[2]) && contribuente.Nome.ToUpper().Contains(responseArray[3]) && contribuente.Nome.ToUpper().Contains(responseArray[4]) && contribuente.Nome.ToUpper().Contains(responseArray[5]))
         {   
             controlloDati = true;
-            contribuente.CodiceFiscale = response;
+            contribuente.CodiceFiscale = response.ToUpper();
         }
         else
         {
@@ -158,7 +159,7 @@ void RaccoltaDati()
         }
     }
     while (!controlloDati);
-
+    contribuente.TaxShow();
 }
 
 RaccoltaDati();
