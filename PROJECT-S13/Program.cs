@@ -86,7 +86,7 @@ void RaccoltaDati()
         Console.WriteLine();
         Console.WriteLine("========================================");
         Console.WriteLine();
-        if (response.ToUpper() == "M" || response.ToUpper() == "F")
+        if (!string.IsNullOrWhiteSpace(response) && response.ToUpper() == "M" || !string.IsNullOrWhiteSpace(response) && response.ToUpper() == "F")
         {
             controlloDati = true;
             contribuente.Sesso = response;
@@ -126,11 +126,11 @@ void RaccoltaDati()
         controlloDati = false;
         Console.WriteLine();
         Console.WriteLine("Inserire Codice Fiscale");
-        string response = Console.ReadLine();
+        string? response = Console.ReadLine();
         Console.WriteLine();
         Console.WriteLine("========================================");
         Console.WriteLine();
-        if(contribuente.CFValidate(response))        
+        if(!string.IsNullOrWhiteSpace(response) && contribuente.CFValidate(response))        
         {
             controlloDati = true;
             contribuente.CodiceFiscale = response.ToUpper();
