@@ -1,4 +1,5 @@
-﻿using PROJECT_S13;
+﻿using System.Text.RegularExpressions;
+using PROJECT_S13;
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
 Contribuente contribuente = new();
@@ -9,6 +10,7 @@ void RaccoltaDati()
     Console.WriteLine("Benvenuto nel programma di calcolo dell'imposta");
     Console.WriteLine("========================================");
     bool controlloDati = false;
+
     do
     {
         controlloDati = false;
@@ -62,7 +64,7 @@ void RaccoltaDati()
         Console.WriteLine();
         Console.WriteLine("========================================");
         Console.WriteLine();
-        if (!string.IsNullOrWhiteSpace(response) && DateTime.TryParse(response, out DateTime responseDate))
+        if (!string.IsNullOrWhiteSpace(response) && DateTime.TryParse(response, out DateTime responseDate) && responseDate < DateTime.Today)
         {
             controlloDati = true;
             contribuente.DataNascita = responseDate;
@@ -84,7 +86,7 @@ void RaccoltaDati()
         Console.WriteLine();
         Console.WriteLine("========================================");
         Console.WriteLine();
-        if (response.ToLower() == "m" || response.ToLower()== "f")
+        if (response.ToLower() == "m" || response.ToLower() == "f")
         {
             controlloDati = true;
             contribuente.Sesso = response;
@@ -106,7 +108,7 @@ void RaccoltaDati()
         Console.WriteLine();
         Console.WriteLine("========================================");
         Console.WriteLine();
-        if (!string.IsNullOrWhiteSpace(response) && response.All(x => char.IsLetter(x)))
+        if (!string.IsNullOrWhiteSpace(response) && response.All(x => char.IsLetter(x) || char.IsWhiteSpace(x)))
         {
             controlloDati = true;
             contribuente.ComuneResidenza = response;
@@ -129,8 +131,8 @@ void RaccoltaDati()
         Console.WriteLine("========================================");
         Console.WriteLine();
         char[] responseArray = response.ToUpper().ToCharArray();
-        if(!string.IsNullOrWhiteSpace(response) && response.Length == 16 && contribuente.Cognome.ToUpper().Contains(responseArray[0]) && contribuente.Cognome.ToUpper().Contains(responseArray[1]) && contribuente.Cognome.ToUpper().Contains(responseArray[2]) && contribuente.Nome.ToUpper().Contains(responseArray[3]) && contribuente.Nome.ToUpper().Contains(responseArray[4]) && contribuente.Nome.ToUpper().Contains(responseArray[5]))
-        {   
+        if (!string.IsNullOrWhiteSpace(response) && Regex.IsMatch(response.ToUpper(), (@"^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$")) && contribuente.Cognome.ToUpper().Contains(responseArray[0]) && contribuente.Cognome.ToUpper().Contains(responseArray[1]) && contribuente.Cognome.ToUpper().Contains(responseArray[2]) && contribuente.Nome.ToUpper().Contains(responseArray[3]) && contribuente.Nome.ToUpper().Contains(responseArray[4]) && contribuente.Nome.ToUpper().Contains(responseArray[5]))
+        {
             controlloDati = true;
             contribuente.CodiceFiscale = response.ToUpper();
         }
