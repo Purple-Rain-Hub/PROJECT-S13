@@ -86,7 +86,7 @@ void RaccoltaDati()
         Console.WriteLine();
         Console.WriteLine("========================================");
         Console.WriteLine();
-        if (response.ToLower() == "m" || response.ToLower() == "f")
+        if (response.ToUpper() == "M" || response.ToUpper() == "F")
         {
             controlloDati = true;
             contribuente.Sesso = response;
@@ -126,12 +126,11 @@ void RaccoltaDati()
         controlloDati = false;
         Console.WriteLine();
         Console.WriteLine("Inserire Codice Fiscale");
-        string? response = Console.ReadLine();
+        string response = Console.ReadLine();
         Console.WriteLine();
         Console.WriteLine("========================================");
         Console.WriteLine();
-        char[] responseArray = response.ToUpper().ToCharArray();
-        if (!string.IsNullOrWhiteSpace(response) && Regex.IsMatch(response.ToUpper(), (@"^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$")) && contribuente.Cognome.ToUpper().Contains(responseArray[0]) && contribuente.Cognome.ToUpper().Contains(responseArray[1]) && contribuente.Cognome.ToUpper().Contains(responseArray[2]) && contribuente.Nome.ToUpper().Contains(responseArray[3]) && contribuente.Nome.ToUpper().Contains(responseArray[4]) && contribuente.Nome.ToUpper().Contains(responseArray[5]))
+        if(contribuente.CFValidate(response))        
         {
             controlloDati = true;
             contribuente.CodiceFiscale = response.ToUpper();
